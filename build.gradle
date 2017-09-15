@@ -38,6 +38,9 @@ repositories {
 
 dependencies {
     testCompile "junit:junit:4.12"
+    compile group: 'com.google.guava', name: 'guava', version: '23.0'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.7-dmr'
+
 }
 
 subprojects {
