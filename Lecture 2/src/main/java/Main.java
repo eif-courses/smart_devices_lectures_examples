@@ -14,7 +14,7 @@ public class Main {
             }
             catch (Exception e){
               //  JOptionPane.showMessageDialog(null, "Atsiprasome duomenys yra neteisingo formato. BUVO ISTAISYTA");
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "getRowMETODAS()" + rs.);
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2));
             }
         con.close();
     }
