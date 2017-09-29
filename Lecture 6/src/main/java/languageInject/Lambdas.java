@@ -1,4 +1,4 @@
-package lambda;
+package languageInject;
 import java.util.*;
 public class Lambdas {
 
@@ -6,13 +6,12 @@ public class Lambdas {
         String jsonObject = "{\"value\": 50, \"name\": \"Petras\"}";
         String ll = String.format("<html>\n<table>Hello</table>\n<br/>\n</html>");
 
-        List<String> list = new ArrayList<>();
-        list.add("hello");
-        list.add("goodbye");
+        List<String> personList = new ArrayList<>();
+        personList.add("hello");
+        personList.add("goodbye");
         System.out.println("Sveiki studentai : )");
 
         //List<String> list = new ArrayList<>();
-
 
     }
 }
