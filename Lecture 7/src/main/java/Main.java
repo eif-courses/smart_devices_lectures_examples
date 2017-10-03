@@ -15,7 +15,6 @@ class Gyvunas{
     public String getPav() {
         return pav;
     }
-
     void spalvok(Gyvunas gyvunas, Spalva spalva){
         spalva.nuspalvoti(gyvunas);
     }
@@ -47,9 +46,6 @@ class KitasProcesas extends Gyvunas implements Runnable, Spalva{
 
     }
 }
-
-
-
 public class Main {
     public static void main(String[] args) {
 
@@ -87,10 +83,7 @@ public class Main {
         };
         System.out.println("rez: "+kit.pavadinimas("Laba diena"));
         LambdaInterfeisas la = (a, b) -> a + (int)2.5;
-//final int k = 10;
-
     }
-
     interface Kitas{
          String pavadinimas(String k);
     }
