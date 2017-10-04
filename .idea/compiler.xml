@@ -36,14 +36,14 @@
       <module name="Lecture_5_test" target="1.8" />
       <module name="Lecture_6_main" target="1.8" />
       <module name="Lecture_6_test" target="1.8" />
-      <module name="Lecture_7_main" target="1.8" />
-      <module name="Lecture_7_test" target="1.8" />
+      <module name="Lecture_7_main" target="1.9" />
+      <module name="Lecture_7_test" target="1.9" />
       <module name="Lecture_8_main" target="1.8" />
       <module name="Lecture_8_test" target="1.8" />
       <module name="Lecture_9_main" target="1.8" />
       <module name="Lecture_9_test" target="1.8" />
-      <module name="smart_devices_lectures_examples_main" target="1.8" />
-      <module name="smart_devices_lectures_examples_test" target="1.8" />
+      <module name="smart_devices_lectures_examples_main" target="1.9" />
+      <module name="smart_devices_lectures_examples_test" target="1.9" />
     </bytecodeTargetLevel>
   </component>
 </project>
