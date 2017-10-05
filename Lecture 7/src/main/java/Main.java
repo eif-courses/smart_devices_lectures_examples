@@ -1,66 +1,71 @@
-import com.sun.xml.internal.stream.util.ThreadLocalBufferAllocator;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.*;
 
-interface Spalva{
+interface Spalva {
     void nuspalvoti(Gyvunas gyvunas);
 }
-class Gyvunas{
+
+class Gyvunas {
     String pav;
+
     public Gyvunas(String pav) {
         this.pav = pav;
     }
+
     public String getPav() {
         return pav;
     }
-    void randomGyvunas(){
+
+    void randomGyvunas() {
         System.out.println("RANDOM GYVUNAS");
     }
-    void spalvok(Gyvunas gyvunas, Spalva spalva){
+
+    void spalvok(Gyvunas gyvunas, Spalva spalva) {
         spalva.nuspalvoti(gyvunas);
     }
 }
-class SpalvinameGyvuna implements Spalva{
+
+class SpalvinameGyvuna implements Spalva {
     @Override
     public void nuspalvoti(Gyvunas gyvunas) {
-        System.out.println(gyvunas.getPav()+": nuspalvintas");
+        System.out.println(gyvunas.getPav() + ": nuspalvintas");
     }
 }
 
-class Procesas extends Thread{
+class Procesas extends Thread {
     @Override
     public void run() {
         System.out.println("Pagrindinis procesas");
     }
 }
 
-class KitasProcesas extends Gyvunas implements Runnable, Spalva{
+class KitasProcesas extends Gyvunas implements Runnable, Spalva {
     public KitasProcesas(String pav) {
         super(pav);
     }
+
     @Override
     public void run() {
         System.out.println("Kitas procesas.");
     }
+
     @Override
     public void nuspalvoti(Gyvunas gyvunas) {
 
     }
 }
+
 public class Main {
 
     public static void spausdintiGyvunusPagalPirmaRaide(List<Gyvunas> list,
-                                                        Predicate<Gyvunas> predicate, java.util.function.Consumer<Gyvunas> consumer){
+                                                        Predicate<Gyvunas> predicate, java.util.function.Consumer<Gyvunas> consumer) {
         for (Gyvunas gyvunas : list) {
-            if(predicate.test(gyvunas)){
+            if (predicate.test(gyvunas)) {
                 consumer.accept(gyvunas);
                 // sout
             }
@@ -69,7 +74,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-
+        List<Gyvunas> sarasas = List.of(
+                new Gyvunas("Lape"),
+                new Gyvunas("Vilkas"),
+                new Gyvunas("Kiskis"),
+                new Gyvunas("Ezys"),
+                new Gyvunas("Stirna")
+                );
+        sarasas.forEach(System.out::println);
 
         Runnable runnable = new Runnable() {
             @Override
@@ -101,57 +113,85 @@ public class Main {
         gyvunai.add(lape);
         gyvunai.add(vilkas);
 
-       Consumer<Gyvunas> gyvunasConsumer = System.out::println;
-       Predicate<Gyvunas> predicate = gyvunas -> gyvunas.getPav().startsWith("l");
-       Consumer<Gyvunas> lapesCons = Gyvunas::randomGyvunas;
-       lapesCons.accept(lape);
-       String s [] = {"wea", "wae"};
+        Consumer<Gyvunas> gyvunasConsumer = System.out::println;
+        Predicate<Gyvunas> predicate = gyvunas -> gyvunas.getPav().startsWith("l");
+        Consumer<Gyvunas> lapesCons = Gyvunas::randomGyvunas;
+        lapesCons.accept(lape);
+        String s[] = {"wea", "wae"};
         Arrays.sort(s, String::compareTo);
-       // Comparator
-       // int isorinis = 50;
-       BiConsumer<Integer, Integer> biConsumer = (a, b) -> System.out.println(a / b );
+        // Comparator
+        // int isorinis = 50;
+        BiConsumer<Integer, Integer> biConsumer = (a, b) -> System.out.println(a / b);
 
 
-       biConsumer.accept(1,0);
+        biConsumer.accept(1, 0);
 
-       //gyvunasConsumer.accept(lape);
+        //gyvunasConsumer.accept(lape);
 
         spausdintiGyvunusPagalPirmaRaide(gyvunai, predicate, gyvunasConsumer);
-
 
 
         SpalvinameGyvuna spalvinam = new SpalvinameGyvuna();
         lape.spalvok(lape, spalvinam);
         vilkas.spalvok(vilkas, spalvinam);
-        vilkas.spalvok(vilkas, (gyvunas)-> System.out.println(gyvunas.getPav()));
-        Kitas kit = (pav)-> {
-           // System.out.println(pav.charAt(5));
+        vilkas.spalvok(vilkas, (gyvunas) -> System.out.println(gyvunas.getPav()));
+        Kitas kit = (pav) -> {
+            // System.out.println(pav.charAt(5));
             return pav.substring(5);
         };
-        System.out.println("rez: "+kit.pavadinimas("Laba diena"));
-        LambdaInterfeisas la = (a, b) -> a + (int)2.5;
+        System.out.println("rez: " + kit.pavadinimas("Laba diena"));
+        LambdaInterfeisas la = (a, b) -> a + (int) 2.5;
         Runnable r = () -> System.out.println("aweaew");
         new Thread(r).start();
+        //Zmogus z = new Zmogus();
+        Auditorija auditorija = new Zmogus();
+        auditorija.skaiciuoti(10,20);
+
+        Auditorija auditorija1 = new Auditorija() {
+            @Override
+            public void skaiciuoti(int a, int b) {
+
+            }
+        };
+        Auditorija lambda = (a, b) -> {System.out.println(a+b);};
+        lambda.skaiciuoti(50, 60);
     }
-    interface Kitas{
-         String pavadinimas(String k);
+
+    interface Kitas {
+        String pavadinimas(String k);
     }
+
     @FunctionalInterface
-    interface LambdaInterfeisas{
+    interface LambdaInterfeisas {
         int skaiciuoti(int a, int b);
-        default void sk(){
+
+        default void sk() {
             System.out.println("Helllo");
         }
-        static void sudeti(int a, int b){
-            System.out.println(a+b);
+
+        static void sudeti(int a, int b) {
+            System.out.println(a + b);
         }
-       // void kitas();
+        // void kitas();
     }
-    interface GyvunasI{
+
+    interface GyvunasI {
         Gyvunas gyv();
     }
 
 
 
 
+}
+
+interface Auditorija{
+    void skaiciuoti(int a, int b);
+}
+
+class Zmogus implements Auditorija {
+
+    @Override
+    public void skaiciuoti(int a, int b) {
+
+    }
 }
