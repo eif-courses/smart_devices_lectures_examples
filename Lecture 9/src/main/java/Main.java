@@ -26,7 +26,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        dalyba(50, 10, 20.0,20.0);
+        //dalyba(50, 10, 20.0,20.0);
         dalyba(10, 20, 10, 10, 10, 10, 50);
         dalyba(10, 20);
       Paukstis<Kregzde, Float> paukstis =
@@ -43,7 +43,7 @@ public class Main {
         gyvunai.add(new Gyvunas("Vilkas"));
         gyvunai.add(new Gyvunas("Kiskis"));
         p.ziemoti(gyvunai);
-        Paukstis<? extends Gyvunas,? super Gyvunas> wildCardPaukstis = new Paukstis();
+       // Paukstis<? extends Gyvunas,? super Gyvunas> wildCardPaukstis = new Paukstis();
         p.skristi(gyvunai, new Gyvunas(""));
     }
 
