@@ -39,23 +39,23 @@ dependencies {
 
 }
 
-subprojects {
-    group 'vilniaus.kolegija.elektronikos.ir.informatikos.fakultetas'
-    version '1.0-SNAPSHOT'
-    apply plugin: 'java'
-
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        testCompile group: 'junit', name: 'junit', version: '4.12'
-    }
-    hello {
-        doLast {
-            println "- As priklausau nuo root projekto"
-        }
-    }
-}
+//subprojects {
+//    group 'vilniaus.kolegija.elektronikos.ir.informatikos.fakultetas'
+//    version '1.0-SNAPSHOT'
+//    apply plugin: 'java'
+//
+//    repositories {
+//        mavenCentral()
+//    }
+//    dependencies {
+//        testCompile group: 'junit', name: 'junit', version: '4.12'
+//    }
+//    hello {
+//        doLast {
+//            println "- As priklausau nuo root projekto"
+//        }
+//    }
+//}
 project(':Lecture 1').hello {
     doLast {
         println "Sis projektas yra pirmasis ir sveikinasi su jumis : ) "

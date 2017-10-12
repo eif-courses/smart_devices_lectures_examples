@@ -77,7 +77,6 @@ public class PersonBuilder
       this.newIsHomeOwner = newIsHomeOwner;
       return this;
    }
-
    public Person createPerson() {
       return new Person(newLastName, newFirstName, newMiddleName, newSalutation, newSuffix, newStreetAddress, newCity, newState, newIsFemale, newIsEmployed, newIsHomeOwner, role);
    }
