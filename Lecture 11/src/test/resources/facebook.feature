@@ -1,12 +1,9 @@
-Feature: cucumberJava
-#This is how background can be used to eliminate duplicate steps
-
-
+Feature: facebook_login
 
 #Scenario with AND
 Scenario:
-   When I enter username as "TOM"
-   And I enter password as "JERRY"
+   When I enter username as "user"
+   And I enter password as "user"
    Then Login should fail
 
 #Scenario with BUT

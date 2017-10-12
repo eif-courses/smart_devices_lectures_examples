@@ -51,5 +51,6 @@ public class WikipediaSteps {
               .findElement(By.cssSelector("div#mw-content-text.mw-content-ltr p"));
       assertFalse(results.getText().contains(searchResult + " may refer to:"));
       assertTrue(results.getText().startsWith(searchResult));
+      System.out.println(results.getText());
    }
 }
