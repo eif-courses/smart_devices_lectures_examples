@@ -46,11 +46,12 @@ public class WikipediaSteps {
    }
 
    @Then("^Single result is shown for '(.*?)'$")
-   public void assertSingleResult(String searchResult) {
+   public void assertSingleResult(String searchResult) throws InterruptedException {
       WebElement results = driver
               .findElement(By.cssSelector("div#mw-content-text.mw-content-ltr p"));
       assertFalse(results.getText().contains(searchResult + " may refer to:"));
       assertTrue(results.getText().startsWith(searchResult));
       System.out.println(results.getText());
+      Thread.sleep(20000);
    }
 }

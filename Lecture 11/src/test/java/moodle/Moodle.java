@@ -55,18 +55,7 @@ public class Moodle {
       // Write code here that turns the phrase above into concrete actions
       driver.findElement(By.id("username")).sendKeys("studentas");
    }
-   @And("^I enter password$")
-   public void iEnterPassword() throws Throwable {
-      // Write code here that turns the phrase above into concrete actions
 
-      String brute_force[] = {"abc123", "256666", "hello", "password", "admin", "user", "studentas"};
-      for (int i = 0; i < brute_force.length; i++) {
-         driver.findElement(By.id("password")).sendKeys(brute_force[i]);
-         driver.findElement(By.id("password")).sendKeys(Keys.ENTER);
-         Thread.sleep(1000);
-      }
-
-   }
 
    @Then("^Login should fail$")
    public void checkFail() throws InterruptedException {
@@ -77,5 +66,17 @@ public class Moodle {
    }
 
 
+    @And("^I start bruteForceAttack$")
+    public void iStartBruteForceAttack() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
 
+       String brute_force[] = {"abc123", "256666", "hello", "password", "admin", "user", "studentas",
+               "sda", "ace", "boom", "crew", "dog", "eon", "ace", "boom", "crew", "dog", "eon"};
+
+       for (int i = 0; i < brute_force.length; i++) {
+          driver.findElement(By.id("password")).sendKeys(brute_force[i]);
+          driver.findElement(By.id("password")).sendKeys(Keys.ENTER);
+          Thread.sleep(1000);
+       }
+    }
 }
