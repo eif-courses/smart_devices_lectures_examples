@@ -1,6 +1,6 @@
 package judandytys_objektai;
 
-public class Automobilis implements JudesysInterface{
+public class Automobilis extends BMW implements JudesysInterface{
     private String pavadinimas;
 
     public Automobilis(String pavadinimas) {

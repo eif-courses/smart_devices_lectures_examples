@@ -1,6 +1,7 @@
 package annotation;
 
 
+import cucumber.api.PendingException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -54,4 +55,16 @@ public class WikipediaSteps {
       System.out.println(results.getText());
       Thread.sleep(20000);
    }
+
+   @When("^Kitas veiksmas$")
+   public void kitasVeiksmas() throws Throwable {
+      // Write code here that turns the phrase above into concrete actions
+      //throw new PendingException();
+   }
+
+    @When("^Teorines paskaitos trukme$")
+    public void teorinesPaskaitosTrukme() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        //throw new PendingException();
+    }
 }

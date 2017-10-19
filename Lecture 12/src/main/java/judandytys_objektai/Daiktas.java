@@ -9,6 +9,7 @@ public class Daiktas implements JudesysInterface{
 
     @Override
     public void judeti() {
+
         System.out.println("Krenta is penkto auksto.");
     }
 }
